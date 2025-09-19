@@ -4,6 +4,7 @@ import { IUsers } from '../../interfaces/iusers';
 import { Router } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -42,16 +43,28 @@ export class HomeComponent {
   }
 
   async eliminarUsuario(user: IUsers) {
-    if (confirm(`¿Seguro que deseas eliminar a ${user.first_name}?`)) {
-      try {
-        await this.usersServices.remove(user._id);
-        toast.success('Usuario eliminado correctamente');
-        await this.cargarDatos();
-      } catch (error) {
-        toast.error('Error eliminando usuario');
-        console.error(error);
-      }
+  const result = await Swal.fire({
+    title: `¿Quieres eliminar a ${user.first_name}?`,
+    text: '¡No podrás revertir esto!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  });
+
+  if (result.isConfirmed) {
+    try {
+      await this.usersServices.remove(user._id);
+      toast.success('Usuario eliminado correctamente');
+      await this.cargarDatos();
+    } catch (error) {
+      toast.error('Error eliminando usuario');
+      console.error(error);
     }
   }
+}
+ // ¡No podrás revertir esto!
 
 }

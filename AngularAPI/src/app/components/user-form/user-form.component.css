@@ -1,10 +1,8 @@
-/* Fondo general y tipografía */
 .formulario-container {
   background: #e0e5ec; /* gris pastel suave */
   font-family: 'Poppins', sans-serif;
 }
 
-/* Tarjeta del formulario con efecto neumórfico */
 .form-card {
   width: 100%;
   max-width: 450px;
@@ -14,13 +12,11 @@
   box-shadow: 10px 10px 20px #c5cbd6, -10px -10px 20px #ffffff;
 }
 
-/* Encabezado elegante */
 .form-card h1 {
   font-weight: 600;
   color: #333;
 }
 
-/* Inputs estilo neumórfico */
 .neumorphic-input {
   background: #e0e5ec;
   border: none;
@@ -36,14 +32,12 @@
               0 0 5px rgba(0,123,255,0.3);
 }
 
-/* Mensajes de error */
 .error {
   color: #e74c3c;
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
 
-/* Botón neumórfico */
 .neumorphic-btn {
   background: #e0e5ec;
   border: none;

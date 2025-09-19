@@ -20,7 +20,7 @@ export class Users {
 
   // Método para obtener un usuario por su ID
   getById(_idUser: string): Promise<IUsers> {
-    return lastValueFrom(this.httpClient.get<IUsers>(`${this.endPoint}/${_idUser}`))
+    return lastValueFrom(this.httpClient.get<IUsers>(`${this.endPoint}/${_idUser}`));
   }
 
   // Método para crear un nuevo usuario
