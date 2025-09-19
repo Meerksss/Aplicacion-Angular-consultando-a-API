@@ -5,6 +5,7 @@ import { toast, NgxSonnerToaster } from 'ngx-sonner';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, NavbarComponent, NgxSonnerToaster],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -12,6 +13,6 @@ import { toast, NgxSonnerToaster } from 'ngx-sonner';
 export class App {
   protected title = 'AngularAPI';
 
-    protected readonly toast = toast;
+  protected readonly toast = toast;
 
 }

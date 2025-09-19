@@ -6,3 +6,7 @@ export interface IUsers {
     email: string;
     image: string;
 }
+
+export interface IError {
+    error: string;
+}

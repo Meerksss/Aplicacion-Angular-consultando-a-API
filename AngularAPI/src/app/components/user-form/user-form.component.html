@@ -1,1 +1,77 @@
-<p>user-form works!</p>
+<section class="formulario-container d-flex justify-content-center align-items-center vh-100">
+  <div class="form-card p-5">
+    <h1 class="text-center mb-4">{{ isEdit ? 'Editar Usuario' : 'Nuevo Usuario' }}</h1>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+      <!-- Nombre -->
+      <div class="mb-3">
+        <label class="form-label" for="first_name">Nombre</label>
+        <input class="form-control neumorphic-input" id="first_name" type="text" placeholder="Escribe tu nombre"
+               formControlName="first_name">
+        @if(checkControl('first_name','required')) {
+          <p class="error">Campo obligatorio</p>
+        }
+        @if(checkControl('first_name','minlength')) {
+          <p class="error">Debe tener mínimo 2 caracteres</p>
+        }
+      </div>
+
+      <!-- Apellido -->
+      <div class="mb-3">
+        <label class="form-label" for="last_name">Apellido</label>
+        <input class="form-control neumorphic-input" id="last_name" type="text" placeholder="Escribe tu apellido"
+               formControlName="last_name">
+        @if(checkControl('last_name','required')) {
+          <p class="error">Campo obligatorio</p>
+        }
+      </div>
+
+      <!-- Username -->
+      <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input class="form-control neumorphic-input" id="username" type="text" placeholder="Escribe tu username"
+               formControlName="username">
+        @if(checkControl('username','required')) {
+          <p class="error">Campo obligatorio</p>
+        }
+        @if(checkControl('username','minlength')) {
+          <p class="error">Debe tener mínimo 4 caracteres</p>
+        }
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control neumorphic-input" id="email" type="email" placeholder="Escribe tu email"
+               formControlName="email">
+        @if(checkControl('email','required')) {
+          <p class="error">Email obligatorio</p>
+        }
+        @if(checkControl('email','email')) {
+          <p class="error">Formato de email inválido</p>
+        }
+      </div>
+
+      <!-- Imagen -->
+      <div class="mb-3">
+        <label class="form-label" for="image">URL Imagen</label>
+        <input class="form-control neumorphic-input" id="image" type="text" placeholder="URL de la imagen"
+               formControlName="image">
+        @if(checkControl('image','required')) {
+          <p class="error">La URL de imagen es obligatoria</p>
+        }
+        @if(checkControl('image','pattern')) {
+          <p class="error">Debe ser una URL válida (http o https)</p>
+        }
+      </div>
+
+      <!-- Botón -->
+      <div class="text-center">
+        <input type="submit" [value]="isEdit ? 'Actualizar' : 'Crear'" 
+               class="btn neumorphic-btn mt-3"
+               [disabled]="userForm.invalid">
+      </div>
+    </form>
+  </div>
+</section>

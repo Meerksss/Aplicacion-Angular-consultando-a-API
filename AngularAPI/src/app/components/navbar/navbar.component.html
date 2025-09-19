@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <!-- Marca o título -->
-    <a class="navbar-brand" routerLink="/home">Angular API</a>
+    <a class="navbar-brand" [routerLink]="'/home'">Angular API</a>
 
     <!-- Botón hamburguesa (aparece en móviles) -->
     <button 
@@ -19,10 +19,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Inicio</a>
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/nuevo-usuario" routerLinkActive="active">Nuevo Usuario</a>
+          <a class="nav-link" [routerLink]="['/nuevo-usuario']" routerLinkActive="active">Nuevo Usuario</a>
         </li>
       </ul>
     </div>
